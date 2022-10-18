@@ -10,7 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
 import {todosReducer} from './store/reducer';
 import {environment} from '../environments/environment';
@@ -20,11 +20,15 @@ import {Effects} from './store/effects';
 import {HttpClientModule} from '@angular/common/http';
 import {MockTodoApi} from './services/mock-todo-api';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import { DetailListComponent } from './todo-list/detail-list/detail-list.component';
+import { CreateListComponent } from './todo-list/create-list/create-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent
+    TodoListComponent,
+    DetailListComponent,
+    CreateListComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
     HttpClientInMemoryWebApiModule.forRoot(MockTodoApi),
     StoreModule.forRoot({todosStore: todosReducer}),
     EffectsModule.forRoot([Effects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

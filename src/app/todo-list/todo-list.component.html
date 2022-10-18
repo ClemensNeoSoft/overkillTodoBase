@@ -3,16 +3,21 @@
     <mat-card-title>Todos</mat-card-title>
     <mat-card-content>
       <mat-list>
-        <mat-list-item *ngFor="let todo of todos$ | async">
-          <h4 matLine>
-            <mat-checkbox
+        <mat-list-item *ngFor="let todo of todos$ | async; let i = index">
+          <h4 matLine [ngClass]="{'isClosed' : todo.isClosed}">
+            <mat-checkbox 
               [checked]="todo.isClosed"
               disabled="true"
+              (click)="editCheckbox(todo)"
             ></mat-checkbox>
             {{ todo.title }}
+            <button mat-stroked-button (click)="selectTodoDetail(i)">Details</button>
           </h4>
         </mat-list-item>
       </mat-list>
+      <div class="addElement">
+        <button class="newButton" (click)="addNewTodo()">Add a new Todo</button>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

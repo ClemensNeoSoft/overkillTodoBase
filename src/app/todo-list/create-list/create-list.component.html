@@ -1,0 +1,34 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>New Todo</mat-card-title>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item>
+                    <form [formGroup]="addNewTodoForm" (ngSubmit)="onSubmitForm()">
+    
+                        <div class="form">
+    
+                            <!-- Field Title -->
+                            <label for="inputTitle">Title</label>
+                            <input type="text" id="inputTitle" formControlName="title">
+    
+                            <!-- Field Description -->
+                            <label for="inputDescription">Description</label>
+                            <input type="text" id="inputDescription" formControlName="description">
+                        
+                            <!-- Button Submit -->
+                            <button type="submit" [disabled]="addNewTodoForm.invalid">Send</button>
+
+                        </div>
+        
+                    </form>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+
+<div class="isAdded" *ngIf="isAdded">
+    The new todo has been added
+</div>

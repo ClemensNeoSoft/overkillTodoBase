@@ -3,3 +3,16 @@
   max-width: 700px;
   margin: auto;
 }
+
+.isClosed {
+  text-decoration: line-through;
+}
+
+a {
+  text-decoration:none;
+}
+
+.addElement {
+  display: flex;
+  justify-content: flex-end;
+}

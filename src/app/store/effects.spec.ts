@@ -33,7 +33,7 @@ describe('Effects', () => {
 
   describe('loadTodos$', () => {
     it('should dispatch loadTodosSuccess action when todoService.list return a result', () => {
-      const mockedTodos: Todo[] = [{ title: 'aTitle', isClosed: true }];
+      const mockedTodos: Todo[] = [{ title: 'aTitle', isClosed: true, description: "test description effact.spec.ts" }];
       todoService.list.and.returnValue(of(mockedTodos));
 
       actions = hot('-a-', {
